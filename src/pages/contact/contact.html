@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Rehber
+    </ion-title>
+  </ion-navbar>
+
+  <ion-toolbar color="danger">
+    <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let contact of contacts">
+      <ion-item (click)="openContactDetailPage()" *ngIf="contact.name.indexOf(searchText) != -1">
+        <ion-icon name="ionic" item-left></ion-icon>
+        {{ contact.name }}
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
